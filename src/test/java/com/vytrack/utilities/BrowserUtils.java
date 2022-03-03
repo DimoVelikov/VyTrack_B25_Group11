@@ -1,4 +1,4 @@
-package com.nextbasecrm.utilities;
+package com.vytrack.utilities;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
