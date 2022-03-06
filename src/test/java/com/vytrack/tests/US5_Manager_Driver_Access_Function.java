@@ -30,7 +30,7 @@ public class US5_Manager_Driver_Access_Function {
 
     // -----------------------------SALES MANAGER ACCESS---------------------------------------
     @Test
-    public void US5_AC1_Manager_Access_To_VehiclesModel_Tab() {
+    public void US5_AC1_SalesManager_Access_To_VehiclesModel_Tab() {
 
 
         /*
@@ -42,7 +42,7 @@ public class US5_Manager_Driver_Access_Function {
 */
 
         // STEP 1: User go to homepage
-        Driver.getDriver().get("https://app.vytrack.com/user/login");
+        Driver.getDriver().get("https://qa1.vytrack.com/user/login");
 
         // User enters username
         Driver.getDriver().findElement(By.xpath("//input[@type='text']")).sendKeys("salesmanager141");
@@ -129,9 +129,109 @@ public class US5_Manager_Driver_Access_Function {
 
     }
 
-//-----------------------------------------TRUCK DRIVER ACCESS-----------------------------------------
+    // -----------------------------STORE MANAGER ACCESS---------------------------------------
     @Test
-    public void US5_AC2_Drivers_access(){
+    public void US5_AC1_StoreManager_Access_To_VehiclesModel_Tab() {
+
+
+        /*
+        AC #1: The store manager and sales manager should see 10 columns on the Vehicle Model page.
+
+        Expected Column names:
+        MODEL NAME, MAKE, CAN BE REQUESTED, CVVI, CO2 FEE (/MONTH), COST (DEPRECIATED),
+                TOTAL COST (DEPRECIATED), CO2 EMISSIONS, FUEL TYPE, VENDORS
+*/
+
+        // STEP 1: User go to homepage
+        Driver.getDriver().get("https://qa1.vytrack.com/user/login");
+
+        // User enters username
+        Driver.getDriver().findElement(By.xpath("//input[@type='text']")).sendKeys("storemanager65");
+        BrowserUtils.sleep(2);
+        // User enters password
+        Driver.getDriver().findElement(By.xpath("//input[@type='password']")).sendKeys("UserUser123");
+        BrowserUtils.sleep(2);
+        // User clicks SIGN IN button
+        Driver.getDriver().findElement(By.xpath("//button[@type='submit']")).click();
+        BrowserUtils.sleep(2);
+
+
+        // STEP 2: System should display 'Fleet' tab / module
+
+        // Locate 'Fleet' tab/module
+        WebElement moduleTab = Driver.getDriver().findElement(By.xpath("(//span[@class='title title-level-1'])[2]"));
+
+        String expectedModuleName = "Fleet";
+        String actualModuleName = moduleTab.getText();
+
+        // Assert system displays 'Fleet' tab/module
+        Assert.assertEquals(actualModuleName, expectedModuleName);
+
+
+        // STEP 3: Click Fleet tab/module
+
+        moduleTab.click();
+        BrowserUtils.sleep(4);
+
+        // System should show dropdown with Vehicles Model tab/module
+
+        // Verify system shows Vehicles Model tab/module
+        WebElement vehiclesModelTab = Driver.getDriver().findElement(By.xpath("//span[.='Vehicles Model']"));
+
+        String expectedVehiclesModelTab = "Vehicles Model";
+        String actualVehiclesModelTab = vehiclesModelTab.getText();
+
+        // Assert system displays 'Vehicles Model' tab/module
+        Assert.assertEquals(actualVehiclesModelTab, expectedVehiclesModelTab);
+        BrowserUtils.sleep(3);
+
+
+        // STEP 3:
+
+        // Click Vehicles Model tab / module
+
+        vehiclesModelTab.click();
+        BrowserUtils.sleep(4);
+
+        //System should display 10 columns on the Vehicle Model page
+        //Expected Column names:
+        //MODEL NAME, MAKE, CAN BE REQUESTED, CVVI, CO2 FEE (/MONTH), COST (DEPRECIATED),
+        // TOTAL COST (DEPRECIATED), CO2 EMISSIONS, FUEL TYPE, VENDORS
+
+        WebElement modelNameColumn = Driver.getDriver().findElement(By.xpath("//span[.='Model Name']"));
+        modelNameColumn.isDisplayed();
+
+        WebElement makeColumn = Driver.getDriver().findElement(By.xpath("//span[.='Make']"));
+        modelNameColumn.isDisplayed();
+
+        WebElement canBeRequestedColumn = Driver.getDriver().findElement(By.xpath("//span[.='Can be requested']"));
+        modelNameColumn.isDisplayed();
+
+        WebElement cvviColumn = Driver.getDriver().findElement(By.xpath("//span[.='CVVI']"));
+        modelNameColumn.isDisplayed();
+
+        WebElement co2FeeColumn = Driver.getDriver().findElement(By.xpath("//span[.='CO2 Fee (/month)']"));
+        modelNameColumn.isDisplayed();
+
+        WebElement costNameColumn = Driver.getDriver().findElement(By.xpath("//span[.='Cost (Depreciated)']"));
+        modelNameColumn.isDisplayed();
+
+        WebElement totalCostNameColumn = Driver.getDriver().findElement(By.xpath("//span[.='Total Cost (Depreciated)']"));
+        modelNameColumn.isDisplayed();
+
+        WebElement co2EmissionsNameColumn = Driver.getDriver().findElement(By.xpath("//span[.='CO2 Emissions']"));
+        modelNameColumn.isDisplayed();
+
+        WebElement fuelTypeNameColumn = Driver.getDriver().findElement(By.xpath("//span[.='Fuel Type']"));
+        modelNameColumn.isDisplayed();
+
+        WebElement vendorsColumn = Driver.getDriver().findElement(By.xpath("//span[.='Vendors']"));
+        modelNameColumn.isDisplayed();
+
+    }
+
+    @Test
+    public void US5_AC2_Drivers_access() {
 
         /*
         AC #2: Drivers should NOT able to access the Vehicle Model page,
@@ -140,7 +240,7 @@ public class US5_Manager_Driver_Access_Function {
 
 
         // STEP 1: User go to homepage
-        Driver.getDriver().get("https://app.vytrack.com/user/login");
+        Driver.getDriver().get("https://qa1.vytrack.com/user/login");
 
         // User enters username
         Driver.getDriver().findElement(By.xpath("//input[@type='text']")).sendKeys("user177");
@@ -199,9 +299,6 @@ public class US5_Manager_Driver_Access_Function {
         String actualErrorMessage = errorMessage.getText();
 
         Assert.assertEquals(actualErrorMessage, expectedErrorMessage, "Invalid error message detected");
-
-
-
 
     }
 
