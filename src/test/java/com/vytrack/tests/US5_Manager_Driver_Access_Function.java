@@ -70,7 +70,7 @@ public class US5_Manager_Driver_Access_Function {
         // STEP 3: Click Fleet tab/module
 
         moduleTab.click();
-        BrowserUtils.sleep(4);
+        BrowserUtils.sleep(2);
 
         // System should show dropdown with Vehicles Model tab/module
 
@@ -82,7 +82,6 @@ public class US5_Manager_Driver_Access_Function {
 
         // Assert system displays 'Vehicles Model' tab/module
         Assert.assertEquals(actualVehiclesModelTab, expectedVehiclesModelTab);
-        BrowserUtils.sleep(3);
 
 
         // STEP 3:
@@ -90,7 +89,7 @@ public class US5_Manager_Driver_Access_Function {
         // Click Vehicles Model tab / module
 
         vehiclesModelTab.click();
-        BrowserUtils.sleep(4);
+        BrowserUtils.sleep(2);
 
         //System should display 10 columns on the Vehicle Model page
         //Expected Column names:
@@ -126,6 +125,14 @@ public class US5_Manager_Driver_Access_Function {
 
         WebElement vendorsColumn = Driver.getDriver().findElement(By.xpath("//span[.='Vendors']"));
         modelNameColumn.isDisplayed();
+
+        WebElement logoutButton = Driver.getDriver().findElement(By.xpath("//i[@class='fa-caret-down']"));
+        logoutButton.click();
+        BrowserUtils.sleep(2);
+
+        WebElement logout = Driver.getDriver().findElement(By.xpath("//a[.='Logout']"));
+        logout.click();
+
 
     }
 
@@ -171,7 +178,7 @@ public class US5_Manager_Driver_Access_Function {
         // STEP 3: Click Fleet tab/module
 
         moduleTab.click();
-        BrowserUtils.sleep(4);
+        BrowserUtils.sleep(2);
 
         // System should show dropdown with Vehicles Model tab/module
 
@@ -183,7 +190,6 @@ public class US5_Manager_Driver_Access_Function {
 
         // Assert system displays 'Vehicles Model' tab/module
         Assert.assertEquals(actualVehiclesModelTab, expectedVehiclesModelTab);
-        BrowserUtils.sleep(3);
 
 
         // STEP 3:
@@ -191,7 +197,7 @@ public class US5_Manager_Driver_Access_Function {
         // Click Vehicles Model tab / module
 
         vehiclesModelTab.click();
-        BrowserUtils.sleep(4);
+        BrowserUtils.sleep(2);
 
         //System should display 10 columns on the Vehicle Model page
         //Expected Column names:
@@ -227,6 +233,13 @@ public class US5_Manager_Driver_Access_Function {
 
         WebElement vendorsColumn = Driver.getDriver().findElement(By.xpath("//span[.='Vendors']"));
         modelNameColumn.isDisplayed();
+
+        WebElement logoutButton = Driver.getDriver().findElement(By.xpath("//i[@class='fa-caret-down']"));
+        logoutButton.click();
+        BrowserUtils.sleep(2);
+
+        WebElement logout = Driver.getDriver().findElement(By.xpath("//a[.='Logout']"));
+        logout.click();
 
     }
 
@@ -268,7 +281,7 @@ public class US5_Manager_Driver_Access_Function {
         // STEP 3: Click Fleet tab/module
 
         moduleTab.click();
-        BrowserUtils.sleep(4);
+        BrowserUtils.sleep(2);
 
         // System should show dropdown with Vehicles Model tab/module
 
@@ -280,7 +293,6 @@ public class US5_Manager_Driver_Access_Function {
 
         // Assert system displays 'Vehicles Model' tab/module
         Assert.assertEquals(actualVehiclesModelTab, expectedVehiclesModelTab);
-        BrowserUtils.sleep(3);
 
 
         // STEP 3:
@@ -288,7 +300,7 @@ public class US5_Manager_Driver_Access_Function {
         // Click Vehicles Model tab / module
 
         vehiclesModelTab.click();
-        BrowserUtils.sleep(4);
+        BrowserUtils.sleep(2);
 
         // System should show error message:
         //“You do not have permission to perform this action.”
