@@ -1,9 +1,7 @@
 package com.vytrack.tests;
 
-import com.vytrack.utilities.BrowserUtils;
-import com.vytrack.utilities.ConfigurationReader;
-import com.vytrack.utilities.VyTrack_Utilities;
-import com.vytrack.utilities.WebDriverFactory;
+import com.vytrack.tests.base.TestBase;
+import com.vytrack.utilities.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,40 +13,27 @@ import org.testng.annotations.Test;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class US59_Select_Vehicle {
+public class US59_Select_Vehicle extends TestBase {
 
-    public WebDriver driver;
-
-    @BeforeMethod
-    public void setupMethod() {
-        String browser = ConfigurationReader.getProperty("browser");
-        String env = ConfigurationReader.getProperty("env");
-
-        driver = WebDriverFactory.getDriver(browser);
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
-        driver.get(env);
-
-    }
 
     //AC #1:  once the user launched to the Vehicle page, all the checkboxes should be unchecked
     @Test
     public void ac1_truck_driver() {
 
         //1. Log in with truck driver credentials
-        VyTrack_Utilities.loginTruckDriver(driver);
+        VytrackUtils.loginAsDriver();
 
         BrowserUtils.sleep(3);
 
         //2. Select Fleet module
-        driver.findElement(By.xpath("(//li[@class='dropdown dropdown-level-1'])[1]")).click();
+        Driver.getDriver().findElement(By.xpath("(//li[@class='dropdown dropdown-level-1'])[1]")).click();
 
         //3. Select Vehicle
-        driver.findElement(By.xpath("//a[@href='entity/Extend_Entity_Carreservation']")).click();
+        Driver.getDriver().findElement(By.xpath("//a[@href='entity/Extend_Entity_Carreservation']")).click();
         BrowserUtils.sleep(3);
 
         //4. Create a List of Web Elements to contain all the checkboxes
-        List<WebElement> checkboxes = driver.findElements(By.xpath("//table//input[@type='checkbox']"));
+        List<WebElement> checkboxes = Driver.getDriver().findElements(By.xpath("//table//input[@type='checkbox']"));
 
         //5. Assert if the checkboxes is not empty
         Assert.assertFalse(checkboxes.isEmpty());
@@ -67,19 +52,19 @@ public class US59_Select_Vehicle {
     public void ac1_sales_manager() {
 
         //1. Log in with sales manager credentials
-        VyTrack_Utilities.loginSalesManager(driver);
+        VytrackUtils.loginAsSalesManager();
 
         BrowserUtils.sleep(3);
 
         //2. Select Fleet module
-        driver.findElement(By.xpath("(//li[@class='dropdown dropdown-level-1'])[1]")).click();
+        Driver.getDriver().findElement(By.xpath("(//li[@class='dropdown dropdown-level-1'])[1]")).click();
 
         //3. Select Vehicle
-        driver.findElement(By.xpath("//a[@href='entity/Extend_Entity_Carreservation']")).click();
+        Driver.getDriver().findElement(By.xpath("//a[@href='entity/Extend_Entity_Carreservation']")).click();
         BrowserUtils.sleep(3);
 
         //4. Create a List of Web Elements to contain all the checkboxes
-        List<WebElement> checkboxes = driver.findElements(By.xpath("//table//input[@type='checkbox']"));
+        List<WebElement> checkboxes = Driver.getDriver().findElements(By.xpath("//table//input[@type='checkbox']"));
 
         //5. Assert if the checkboxes is not empty
         Assert.assertFalse(checkboxes.isEmpty());
@@ -98,19 +83,18 @@ public class US59_Select_Vehicle {
     public void ac1_store_manager() {
 
         //1. Log in with store manager credentials
-        VyTrack_Utilities.loginStoreManager(driver,"storemanager65","UserUser123");
-
+        VytrackUtils.loginAsStoreManger();
         BrowserUtils.sleep(3);
 
         //2. Select Fleet module
-        driver.findElement(By.xpath("(//li[@class='dropdown dropdown-level-1'])[1]")).click();
+        Driver.getDriver().findElement(By.xpath("(//li[@class='dropdown dropdown-level-1'])[1]")).click();
 
         //3. Select Vehicle
-        driver.findElement(By.xpath("//a[@href='entity/Extend_Entity_Carreservation']")).click();
+        Driver.getDriver().findElement(By.xpath("//a[@href='entity/Extend_Entity_Carreservation']")).click();
         BrowserUtils.sleep(3);
 
         //4. Create a List of Web Elements to contain all the checkboxes
-        List<WebElement> checkboxes = driver.findElements(By.xpath("//table//input[@type='checkbox']"));
+        List<WebElement> checkboxes = Driver.getDriver().findElements(By.xpath("//table//input[@type='checkbox']"));
 
         //5. Assert if the checkboxes is not empty
         Assert.assertFalse(checkboxes.isEmpty());
@@ -131,27 +115,26 @@ public class US59_Select_Vehicle {
     public void ac2_truck_driver() {
 
         //1. Log in with truck driver credentials
-        VyTrack_Utilities.loginTruckDriver(driver);
+        VytrackUtils.loginAsDriver();
 
         BrowserUtils.sleep(3);
 
         //2. Select Fleet module
-        driver.findElement(By.xpath("(//li[@class='dropdown dropdown-level-1'])[1]")).click();
+        Driver.getDriver().findElement(By.xpath("(//li[@class='dropdown dropdown-level-1'])[1]")).click();
 
         //3. Select Vehicle
-        driver.findElement(By.xpath("//a[@href='entity/Extend_Entity_Carreservation']")).click();
+        Driver.getDriver().findElement(By.xpath("//a[@href='entity/Extend_Entity_Carreservation']")).click();
         BrowserUtils.sleep(3);
 
         //4. Create a List of Web Elements to contain all the checkboxes
-        List<WebElement> checkboxes = driver.findElements(By.xpath("//td//input[@type='checkbox']"));
+        List<WebElement> checkboxes = Driver.getDriver().findElements(By.xpath("//td//input[@type='checkbox']"));
 
         //5. Assert if the checkboxes is not empty
         Assert.assertFalse(checkboxes.isEmpty());
 
         //6. Click on select all checkboxes button
-        driver.findElement(By.xpath("(//th//button/input[@type='checkbox'])[1]")).click();
+        Driver.getDriver().findElement(By.xpath("(//th//button/input[@type='checkbox'])[1]")).click();
         BrowserUtils.sleep(3);
-
 
 
         //7. Assert all checkboxes are selected
@@ -168,27 +151,25 @@ public class US59_Select_Vehicle {
     @Test
     public void ac2_sales_manager() {
         //1. Log in with sales manager credentials
-        VyTrack_Utilities.loginSalesManager(driver);
-
+        VytrackUtils.loginAsSalesManager();
         BrowserUtils.sleep(3);
 
         //2. Select Fleet module
-        driver.findElement(By.xpath("(//li[@class='dropdown dropdown-level-1'])[1]")).click();
+        Driver.getDriver().findElement(By.xpath("(//li[@class='dropdown dropdown-level-1'])[1]")).click();
 
         //3. Select Vehicle
-        driver.findElement(By.xpath("//a[@href='entity/Extend_Entity_Carreservation']")).click();
+        Driver.getDriver().findElement(By.xpath("//a[@href='entity/Extend_Entity_Carreservation']")).click();
         BrowserUtils.sleep(3);
 
         //4. Create a List of Web Elements to contain all the checkboxes
-        List<WebElement> checkboxes = driver.findElements(By.xpath("//td//input[@type='checkbox']"));
+        List<WebElement> checkboxes = Driver.getDriver().findElements(By.xpath("//td//input[@type='checkbox']"));
 
         //5. Assert if the checkboxes is not empty
         Assert.assertFalse(checkboxes.isEmpty());
 
         //6. Click on select all checkboxes button
-        driver.findElement(By.xpath("(//th//button/input[@type='checkbox'])[1]")).click();
+        Driver.getDriver().findElement(By.xpath("(//th//button/input[@type='checkbox'])[1]")).click();
         BrowserUtils.sleep(3);
-
 
 
         //7. Assert all checkboxes are selected
@@ -206,27 +187,25 @@ public class US59_Select_Vehicle {
     public void ac2_store_manager() {
 
         //1. Log in with store manager credentials
-        VyTrack_Utilities.loginStoreManager(driver,"storemanager65","UserUser123");
-
+        VytrackUtils.loginAsStoreManger();
         BrowserUtils.sleep(3);
 
         //2. Select Fleet module
-        driver.findElement(By.xpath("(//li[@class='dropdown dropdown-level-1'])[1]")).click();
+        Driver.getDriver().findElement(By.xpath("(//li[@class='dropdown dropdown-level-1'])[1]")).click();
 
         //3. Select Vehicle
-        driver.findElement(By.xpath("//a[@href='entity/Extend_Entity_Carreservation']")).click();
+        Driver.getDriver().findElement(By.xpath("//a[@href='entity/Extend_Entity_Carreservation']")).click();
         BrowserUtils.sleep(3);
 
         //4. Create a List of Web Elements to contain all the checkboxes
-        List<WebElement> checkboxes = driver.findElements(By.xpath("//td//input[@type='checkbox']"));
+        List<WebElement> checkboxes = Driver.getDriver().findElements(By.xpath("//td//input[@type='checkbox']"));
 
         //5. Assert if the checkboxes is not empty
         Assert.assertFalse(checkboxes.isEmpty());
 
         //6. Click on select all checkboxes button
-        driver.findElement(By.xpath("(//th//button/input[@type='checkbox'])[1]")).click();
+        Driver.getDriver().findElement(By.xpath("(//th//button/input[@type='checkbox'])[1]")).click();
         BrowserUtils.sleep(3);
-
 
 
         //7. Assert all checkboxes are selected
@@ -247,20 +226,20 @@ public class US59_Select_Vehicle {
     public void ac3_truck_driver() {
 
         //1. Log in with store manager credentials
-        VyTrack_Utilities.loginTruckDriver(driver);
+        VytrackUtils.loginAsDriver();
 
         BrowserUtils.sleep(3);
 
         //2. Select Fleet module
-        driver.findElement(By.xpath("(//li[@class='dropdown dropdown-level-1'])[1]")).click();
+        Driver.getDriver().findElement(By.xpath("(//li[@class='dropdown dropdown-level-1'])[1]")).click();
 
         //3. Select Vehicle
-        driver.findElement(By.xpath("//a[@href='entity/Extend_Entity_Carreservation']")).click();
+        Driver.getDriver().findElement(By.xpath("//a[@href='entity/Extend_Entity_Carreservation']")).click();
         BrowserUtils.sleep(3);
 
 
         //4. Create a List of Web Elements to contain all the checkboxes
-        List<WebElement> checkboxes = driver.findElements(By.xpath("//td//input[@type='checkbox']"));
+        List<WebElement> checkboxes = Driver.getDriver().findElements(By.xpath("//td//input[@type='checkbox']"));
 
         //5. Assert if the checkboxes is not empty
         Assert.assertFalse(checkboxes.isEmpty());
@@ -280,20 +259,20 @@ public class US59_Select_Vehicle {
     @Test
     public void ac3_sales_manager() {
         //1. Log in with store manager credentials
-        VyTrack_Utilities.loginSalesManager(driver);
+        VytrackUtils.loginAsStoreManger();
 
         BrowserUtils.sleep(3);
 
         //2. Select Fleet module
-        driver.findElement(By.xpath("(//li[@class='dropdown dropdown-level-1'])[1]")).click();
+        Driver.getDriver().findElement(By.xpath("(//li[@class='dropdown dropdown-level-1'])[1]")).click();
 
         //3. Select Vehicle
-        driver.findElement(By.xpath("//a[@href='entity/Extend_Entity_Carreservation']")).click();
+        Driver.getDriver().findElement(By.xpath("//a[@href='entity/Extend_Entity_Carreservation']")).click();
         BrowserUtils.sleep(3);
 
 
         //4. Create a List of Web Elements to contain all the checkboxes
-        List<WebElement> checkboxes = driver.findElements(By.xpath("//td//input[@type='checkbox']"));
+        List<WebElement> checkboxes = Driver.getDriver().findElements(By.xpath("//td//input[@type='checkbox']"));
 
         //5. Assert if the checkboxes is not empty
         Assert.assertFalse(checkboxes.isEmpty());
@@ -314,20 +293,19 @@ public class US59_Select_Vehicle {
     public void ac3_store_manager() {
 
         //1. Log in with store manager credentials
-        VyTrack_Utilities.loginStoreManager(driver,"storemanager65","UserUser123");
-
+        VytrackUtils.loginAsStoreManger();
         BrowserUtils.sleep(3);
 
         //2. Select Fleet module
-        driver.findElement(By.xpath("(//li[@class='dropdown dropdown-level-1'])[1]")).click();
+        Driver.getDriver().findElement(By.xpath("(//li[@class='dropdown dropdown-level-1'])[1]")).click();
 
         //3. Select Vehicle
-        driver.findElement(By.xpath("//a[@href='entity/Extend_Entity_Carreservation']")).click();
+        Driver.getDriver().findElement(By.xpath("//a[@href='entity/Extend_Entity_Carreservation']")).click();
         BrowserUtils.sleep(3);
 
 
         //4. Create a List of Web Elements to contain all the checkboxes
-        List<WebElement> checkboxes = driver.findElements(By.xpath("//td//input[@type='checkbox']"));
+        List<WebElement> checkboxes = Driver.getDriver().findElements(By.xpath("//td//input[@type='checkbox']"));
 
         //5. Assert if the checkboxes is not empty
         Assert.assertFalse(checkboxes.isEmpty());
@@ -344,9 +322,6 @@ public class US59_Select_Vehicle {
 
     }
 
-
-    @AfterMethod
-    public void tearDown() {
-        driver.quit();
-    }
 }
+
+
