@@ -98,7 +98,7 @@ public class US59_Select_Vehicle {
     public void ac1_store_manager() {
 
         //1. Log in with store manager credentials
-        VyTrack_Utilities.loginStoreManager(driver);
+        VyTrack_Utilities.loginStoreManager(driver,"storemanager65","UserUser123");
 
         BrowserUtils.sleep(3);
 
@@ -206,7 +206,7 @@ public class US59_Select_Vehicle {
     public void ac2_store_manager() {
 
         //1. Log in with store manager credentials
-        VyTrack_Utilities.loginStoreManager(driver);
+        VyTrack_Utilities.loginStoreManager(driver,"storemanager65","UserUser123");
 
         BrowserUtils.sleep(3);
 
@@ -314,7 +314,7 @@ public class US59_Select_Vehicle {
     public void ac3_store_manager() {
 
         //1. Log in with store manager credentials
-        VyTrack_Utilities.loginStoreManager(driver);
+        VyTrack_Utilities.loginStoreManager(driver,"storemanager65","UserUser123");
 
         BrowserUtils.sleep(3);
 
