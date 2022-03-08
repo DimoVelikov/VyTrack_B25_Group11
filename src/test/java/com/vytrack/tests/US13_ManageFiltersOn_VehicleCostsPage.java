@@ -341,6 +341,7 @@ public class US13_ManageFiltersOn_VehicleCostsPage {
         WebElement firstCheckbox = Driver.getDriver().findElement(By.xpath("(//input[@type='checkbox'])[4]"));
         BrowserUtils.sleep(2);
         firstCheckbox.click();
+        firstCheckbox.isSelected();
 
         // Logout from the homepage
         WebElement logoutButton = Driver.getDriver().findElement(By.xpath("//i[@class='fa-caret-down']"));
@@ -427,6 +428,7 @@ public class US13_ManageFiltersOn_VehicleCostsPage {
         WebElement firstCheckbox = Driver.getDriver().findElement(By.xpath("(//input[@type='checkbox'])[4]"));
         BrowserUtils.sleep(2);
         firstCheckbox.click();
+        firstCheckbox.isSelected();
 
         // Logout from the homepage
         WebElement logoutButton = Driver.getDriver().findElement(By.xpath("//i[@class='fa-caret-down']"));
@@ -497,7 +499,7 @@ public class US13_ManageFiltersOn_VehicleCostsPage {
         // STEP 4: User checks the first checkbox to check all the Vehicle Costs
 
         WebElement firstCheckbox = Driver.getDriver().findElement(By.xpath("(//input[@type='checkbox'])[4]"));
-        firstCheckbox.isDisplayed();
+        Assert.assertTrue(firstCheckbox.isDisplayed());
 
         // Logout from the homepage
         WebElement logoutButton = Driver.getDriver().findElement(By.xpath("//i[@class='fa-caret-down']"));
