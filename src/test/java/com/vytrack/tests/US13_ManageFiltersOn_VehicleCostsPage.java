@@ -1,6 +1,7 @@
 package com.vytrack.tests;
 
 import com.vytrack.utilities.BrowserUtils;
+import com.vytrack.utilities.ConfigurationReader;
 import com.vytrack.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -36,17 +37,17 @@ public class US13_ManageFiltersOn_VehicleCostsPage {
 */
 
         // STEP 1: User go to homepage
-        Driver.getDriver().get("https://qa1.vytrack.com/user/login");
+        Driver.getDriver().get(ConfigurationReader.getProperty("environment"));
 
         // User enters username
-        Driver.getDriver().findElement(By.xpath("//input[@type='text']")).sendKeys("salesmanager141");
-        BrowserUtils.sleep(2);
+        Driver.getDriver().findElement(By.xpath("//input[@type='text']")).sendKeys(ConfigurationReader.getProperty("username1"));
+        BrowserUtils.sleep(1);
         // User enters password
-        Driver.getDriver().findElement(By.xpath("//input[@type='password']")).sendKeys("UserUser123");
-        BrowserUtils.sleep(2);
+        Driver.getDriver().findElement(By.xpath("//input[@type='password']")).sendKeys(ConfigurationReader.getProperty("password"));
+        BrowserUtils.sleep(1);
         // User clicks SIGN IN button
         Driver.getDriver().findElement(By.xpath("//button[@type='submit']")).click();
-        BrowserUtils.sleep(2);
+        BrowserUtils.sleep(1);
 
 
         // System should display 'Fleet' tab / module
@@ -70,11 +71,11 @@ public class US13_ManageFiltersOn_VehicleCostsPage {
         // Verify system shows Vehicle Costs tab/module
         WebElement vehicleCostsTab = Driver.getDriver().findElement(By.xpath("//span[.='Vehicle Costs']"));
 
-        String expectedVehiclesModelTab = "Vehicle Costs";
-        String actualVehiclesModelTab = vehicleCostsTab.getText();
+        String expectedVehiclesCostsTab = "Vehicle Costs";
+        String actualVehiclesCostsTab = vehicleCostsTab.getText();
 
-        // Assert system displays 'Vehicles Costs' tab/module
-        Assert.assertEquals(actualVehiclesModelTab, expectedVehiclesModelTab);
+        // Assert system displays 'Vehicle Costs' tab/module
+        Assert.assertEquals(actualVehiclesCostsTab, expectedVehiclesCostsTab);
 
 
         // STEP 3: Click Vehicle Costs tab / module
@@ -94,6 +95,7 @@ public class US13_ManageFiltersOn_VehicleCostsPage {
 
         WebElement date = Driver.getDriver().findElement(By.xpath("//span[.='Date']"));
         date.isDisplayed();
+        BrowserUtils.sleep(2);
 
         // logout from the homepage
         WebElement logoutButton = Driver.getDriver().findElement(By.xpath("//i[@class='fa-caret-down']"));
@@ -101,6 +103,7 @@ public class US13_ManageFiltersOn_VehicleCostsPage {
 
         WebElement logout = Driver.getDriver().findElement(By.xpath("//a[.='Logout']"));
         logout.click();
+
 
 
     }
@@ -116,17 +119,17 @@ public class US13_ManageFiltersOn_VehicleCostsPage {
 */
 
         // STEP 1: User go to homepage
-        Driver.getDriver().get("https://qa1.vytrack.com/user/login");
+        Driver.getDriver().get(ConfigurationReader.getProperty("environment"));
 
         // User enters username
-        Driver.getDriver().findElement(By.xpath("//input[@type='text']")).sendKeys("storemanager65");
-        BrowserUtils.sleep(2);
+        Driver.getDriver().findElement(By.xpath("//input[@type='text']")).sendKeys(ConfigurationReader.getProperty("username2"));
+        BrowserUtils.sleep(1);
         // User enters password
-        Driver.getDriver().findElement(By.xpath("//input[@type='password']")).sendKeys("UserUser123");
-        BrowserUtils.sleep(2);
+        Driver.getDriver().findElement(By.xpath("//input[@type='password']")).sendKeys(ConfigurationReader.getProperty("password"));
+        BrowserUtils.sleep(1);
         // User clicks SIGN IN button
         Driver.getDriver().findElement(By.xpath("//button[@type='submit']")).click();
-        BrowserUtils.sleep(2);
+        BrowserUtils.sleep(1);
 
 
         // System should display 'Fleet' tab / module
@@ -175,6 +178,7 @@ public class US13_ManageFiltersOn_VehicleCostsPage {
 
         WebElement date = Driver.getDriver().findElement(By.xpath("//span[.='Date']"));
         date.isDisplayed();
+        BrowserUtils.sleep(2);
 
         // Logout from the homepage
         WebElement logoutButton = Driver.getDriver().findElement(By.xpath("//i[@class='fa-caret-down']"));
@@ -182,6 +186,7 @@ public class US13_ManageFiltersOn_VehicleCostsPage {
 
         WebElement logout = Driver.getDriver().findElement(By.xpath("//a[.='Logout']"));
         logout.click();
+
     }
 
 
@@ -197,17 +202,17 @@ public class US13_ManageFiltersOn_VehicleCostsPage {
 */
 
         // STEP 1: User go to homepage
-        Driver.getDriver().get("https://qa1.vytrack.com/user/login");
+        Driver.getDriver().get(ConfigurationReader.getProperty("environment"));
 
         // User enters username
-        Driver.getDriver().findElement(By.xpath("//input[@type='text']")).sendKeys("user177");
-        BrowserUtils.sleep(2);
+        Driver.getDriver().findElement(By.xpath("//input[@type='text']")).sendKeys(ConfigurationReader.getProperty("username3"));
+        BrowserUtils.sleep(1);
         // User enters password
-        Driver.getDriver().findElement(By.xpath("//input[@type='password']")).sendKeys("UserUser123");
-        BrowserUtils.sleep(2);
+        Driver.getDriver().findElement(By.xpath("//input[@type='password']")).sendKeys(ConfigurationReader.getProperty("password"));
+        BrowserUtils.sleep(1);
         // User clicks SIGN IN button
         Driver.getDriver().findElement(By.xpath("//button[@type='submit']")).click();
-        BrowserUtils.sleep(2);
+        BrowserUtils.sleep(1);
 
 
         // System should display 'Fleet' tab / module
@@ -256,6 +261,7 @@ public class US13_ManageFiltersOn_VehicleCostsPage {
 
         WebElement date = Driver.getDriver().findElement(By.xpath("//span[.='Date']"));
         date.isDisplayed();
+        BrowserUtils.sleep(2);
 
         // Logout from the homepage
         WebElement logoutButton = Driver.getDriver().findElement(By.xpath("//i[@class='fa-caret-down']"));
@@ -263,8 +269,10 @@ public class US13_ManageFiltersOn_VehicleCostsPage {
 
         WebElement logout = Driver.getDriver().findElement(By.xpath("//a[.='Logout']"));
         logout.click();
+
     }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //--------------------------------AC2: SALES MANAGER ABLE TO CHECK FIRST CHECKBOX--------------------------------------
 
@@ -276,17 +284,17 @@ public class US13_ManageFiltersOn_VehicleCostsPage {
 
 
         // STEP 1: User go to homepage
-        Driver.getDriver().get("https://qa1.vytrack.com/user/login");
+        Driver.getDriver().get(ConfigurationReader.getProperty("environment"));
 
         // User enters username
-        Driver.getDriver().findElement(By.xpath("//input[@type='text']")).sendKeys("salesmanager141");
-        BrowserUtils.sleep(2);
+        Driver.getDriver().findElement(By.xpath("//input[@type='text']")).sendKeys(ConfigurationReader.getProperty("username1"));
+        BrowserUtils.sleep(1);
         // User enters password
-        Driver.getDriver().findElement(By.xpath("//input[@type='password']")).sendKeys("UserUser123");
-        BrowserUtils.sleep(2);
+        Driver.getDriver().findElement(By.xpath("//input[@type='password']")).sendKeys(ConfigurationReader.getProperty("password"));
+        BrowserUtils.sleep(1);
         // User clicks SIGN IN button
         Driver.getDriver().findElement(By.xpath("//button[@type='submit']")).click();
-        BrowserUtils.sleep(2);
+        BrowserUtils.sleep(1);
 
 
         // System should display 'Fleet' tab / module
@@ -342,6 +350,7 @@ public class US13_ManageFiltersOn_VehicleCostsPage {
         BrowserUtils.sleep(2);
         firstCheckbox.click();
         firstCheckbox.isSelected();
+        BrowserUtils.sleep(2);
 
         // Logout from the homepage
         WebElement logoutButton = Driver.getDriver().findElement(By.xpath("//i[@class='fa-caret-down']"));
@@ -349,7 +358,6 @@ public class US13_ManageFiltersOn_VehicleCostsPage {
 
         WebElement logout = Driver.getDriver().findElement(By.xpath("//a[.='Logout']"));
         logout.click();
-
 
     }
 
@@ -363,17 +371,17 @@ public class US13_ManageFiltersOn_VehicleCostsPage {
 
 
         // STEP 1: User go to homepage
-        Driver.getDriver().get("https://qa1.vytrack.com/user/login");
+        Driver.getDriver().get(ConfigurationReader.getProperty("environment"));
 
         // User enters username
-        Driver.getDriver().findElement(By.xpath("//input[@type='text']")).sendKeys("storemanager65");
-        BrowserUtils.sleep(2);
+        Driver.getDriver().findElement(By.xpath("//input[@type='text']")).sendKeys(ConfigurationReader.getProperty("username2"));
+        BrowserUtils.sleep(1);
         // User enters password
-        Driver.getDriver().findElement(By.xpath("//input[@type='password']")).sendKeys("UserUser123");
-        BrowserUtils.sleep(2);
+        Driver.getDriver().findElement(By.xpath("//input[@type='password']")).sendKeys(ConfigurationReader.getProperty("password"));
+        BrowserUtils.sleep(1);
         // User clicks SIGN IN button
         Driver.getDriver().findElement(By.xpath("//button[@type='submit']")).click();
-        BrowserUtils.sleep(2);
+        BrowserUtils.sleep(1);
 
 
         // System should display 'Fleet' tab / module
@@ -429,6 +437,7 @@ public class US13_ManageFiltersOn_VehicleCostsPage {
         BrowserUtils.sleep(2);
         firstCheckbox.click();
         firstCheckbox.isSelected();
+        BrowserUtils.sleep(2);
 
         // Logout from the homepage
         WebElement logoutButton = Driver.getDriver().findElement(By.xpath("//i[@class='fa-caret-down']"));
@@ -449,17 +458,17 @@ public class US13_ManageFiltersOn_VehicleCostsPage {
 
 
         // STEP 1: User go to homepage
-        Driver.getDriver().get("https://qa1.vytrack.com/user/login");
+        Driver.getDriver().get(ConfigurationReader.getProperty("environment"));
 
         // User enters username
-        Driver.getDriver().findElement(By.xpath("//input[@type='text']")).sendKeys("user177");
-        BrowserUtils.sleep(2);
+        Driver.getDriver().findElement(By.xpath("//input[@type='text']")).sendKeys(ConfigurationReader.getProperty("username3"));
+        BrowserUtils.sleep(1);
         // User enters password
-        Driver.getDriver().findElement(By.xpath("//input[@type='password']")).sendKeys("UserUser123");
-        BrowserUtils.sleep(2);
+        Driver.getDriver().findElement(By.xpath("//input[@type='password']")).sendKeys(ConfigurationReader.getProperty("password"));
+        BrowserUtils.sleep(1);
         // User clicks SIGN IN button
         Driver.getDriver().findElement(By.xpath("//button[@type='submit']")).click();
-        BrowserUtils.sleep(2);
+        BrowserUtils.sleep(1);
 
 
         // System should display 'Fleet' tab / module
@@ -500,6 +509,7 @@ public class US13_ManageFiltersOn_VehicleCostsPage {
 
         WebElement firstCheckbox = Driver.getDriver().findElement(By.xpath("(//input[@type='checkbox'])[4]"));
         Assert.assertTrue(firstCheckbox.isDisplayed());
+        BrowserUtils.sleep(2);
 
         // Logout from the homepage
         WebElement logoutButton = Driver.getDriver().findElement(By.xpath("//i[@class='fa-caret-down']"));
@@ -507,6 +517,7 @@ public class US13_ManageFiltersOn_VehicleCostsPage {
 
         WebElement logout = Driver.getDriver().findElement(By.xpath("//a[.='Logout']"));
         logout.click();
+
 
 
     }
