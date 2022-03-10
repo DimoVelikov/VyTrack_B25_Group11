@@ -37,13 +37,13 @@ public class US13_ManageFiltersOn_VehicleCostsPage {
 */
 
         // STEP 1: User go to homepage
-        Driver.getDriver().get(ConfigurationReader.getProperty("environment"));
+        Driver.getDriver().get(ConfigurationReader.getProperty("env1"));
 
         // User enters username
-        Driver.getDriver().findElement(By.xpath("//input[@type='text']")).sendKeys(ConfigurationReader.getProperty("username1"));
+        Driver.getDriver().findElement(By.xpath("//input[@type='text']")).sendKeys(ConfigurationReader.getProperty("sales_manager_username"));
         BrowserUtils.sleep(1);
         // User enters password
-        Driver.getDriver().findElement(By.xpath("//input[@type='password']")).sendKeys(ConfigurationReader.getProperty("password"));
+        Driver.getDriver().findElement(By.xpath("//input[@type='password']")).sendKeys(ConfigurationReader.getProperty("sales_manager_password"));
         BrowserUtils.sleep(1);
         // User clicks SIGN IN button
         Driver.getDriver().findElement(By.xpath("//button[@type='submit']")).click();
@@ -119,13 +119,13 @@ public class US13_ManageFiltersOn_VehicleCostsPage {
 */
 
         // STEP 1: User go to homepage
-        Driver.getDriver().get(ConfigurationReader.getProperty("environment"));
+        Driver.getDriver().get(ConfigurationReader.getProperty("env1"));
 
         // User enters username
-        Driver.getDriver().findElement(By.xpath("//input[@type='text']")).sendKeys(ConfigurationReader.getProperty("username2"));
+        Driver.getDriver().findElement(By.xpath("//input[@type='text']")).sendKeys(ConfigurationReader.getProperty("store_manager_username"));
         BrowserUtils.sleep(1);
         // User enters password
-        Driver.getDriver().findElement(By.xpath("//input[@type='password']")).sendKeys(ConfigurationReader.getProperty("password"));
+        Driver.getDriver().findElement(By.xpath("//input[@type='password']")).sendKeys(ConfigurationReader.getProperty("store_manager_password"));
         BrowserUtils.sleep(1);
         // User clicks SIGN IN button
         Driver.getDriver().findElement(By.xpath("//button[@type='submit']")).click();
@@ -202,13 +202,13 @@ public class US13_ManageFiltersOn_VehicleCostsPage {
 */
 
         // STEP 1: User go to homepage
-        Driver.getDriver().get(ConfigurationReader.getProperty("environment"));
+        Driver.getDriver().get(ConfigurationReader.getProperty("env1"));
 
         // User enters username
-        Driver.getDriver().findElement(By.xpath("//input[@type='text']")).sendKeys(ConfigurationReader.getProperty("username3"));
+        Driver.getDriver().findElement(By.xpath("//input[@type='text']")).sendKeys(ConfigurationReader.getProperty("driver_username"));
         BrowserUtils.sleep(1);
         // User enters password
-        Driver.getDriver().findElement(By.xpath("//input[@type='password']")).sendKeys(ConfigurationReader.getProperty("password"));
+        Driver.getDriver().findElement(By.xpath("//input[@type='password']")).sendKeys(ConfigurationReader.getProperty("driver_password"));
         BrowserUtils.sleep(1);
         // User clicks SIGN IN button
         Driver.getDriver().findElement(By.xpath("//button[@type='submit']")).click();
@@ -284,13 +284,13 @@ public class US13_ManageFiltersOn_VehicleCostsPage {
 
 
         // STEP 1: User go to homepage
-        Driver.getDriver().get(ConfigurationReader.getProperty("environment"));
+        Driver.getDriver().get(ConfigurationReader.getProperty("env1"));
 
         // User enters username
-        Driver.getDriver().findElement(By.xpath("//input[@type='text']")).sendKeys(ConfigurationReader.getProperty("username1"));
+        Driver.getDriver().findElement(By.xpath("//input[@type='text']")).sendKeys(ConfigurationReader.getProperty("sales_manager_username"));
         BrowserUtils.sleep(1);
         // User enters password
-        Driver.getDriver().findElement(By.xpath("//input[@type='password']")).sendKeys(ConfigurationReader.getProperty("password"));
+        Driver.getDriver().findElement(By.xpath("//input[@type='password']")).sendKeys(ConfigurationReader.getProperty("sales_manager_password"));
         BrowserUtils.sleep(1);
         // User clicks SIGN IN button
         Driver.getDriver().findElement(By.xpath("//button[@type='submit']")).click();
@@ -371,13 +371,13 @@ public class US13_ManageFiltersOn_VehicleCostsPage {
 
 
         // STEP 1: User go to homepage
-        Driver.getDriver().get(ConfigurationReader.getProperty("environment"));
+        Driver.getDriver().get(ConfigurationReader.getProperty("env1"));
 
         // User enters username
-        Driver.getDriver().findElement(By.xpath("//input[@type='text']")).sendKeys(ConfigurationReader.getProperty("username2"));
+        Driver.getDriver().findElement(By.xpath("//input[@type='text']")).sendKeys(ConfigurationReader.getProperty("store_manager_username"));
         BrowserUtils.sleep(1);
         // User enters password
-        Driver.getDriver().findElement(By.xpath("//input[@type='password']")).sendKeys(ConfigurationReader.getProperty("password"));
+        Driver.getDriver().findElement(By.xpath("//input[@type='password']")).sendKeys(ConfigurationReader.getProperty("store_manager_password"));
         BrowserUtils.sleep(1);
         // User clicks SIGN IN button
         Driver.getDriver().findElement(By.xpath("//button[@type='submit']")).click();
@@ -458,13 +458,13 @@ public class US13_ManageFiltersOn_VehicleCostsPage {
 
 
         // STEP 1: User go to homepage
-        Driver.getDriver().get(ConfigurationReader.getProperty("environment"));
+        Driver.getDriver().get(ConfigurationReader.getProperty("env1"));
 
         // User enters username
-        Driver.getDriver().findElement(By.xpath("//input[@type='text']")).sendKeys(ConfigurationReader.getProperty("username3"));
+        Driver.getDriver().findElement(By.xpath("//input[@type='text']")).sendKeys(ConfigurationReader.getProperty("driver_username"));
         BrowserUtils.sleep(1);
         // User enters password
-        Driver.getDriver().findElement(By.xpath("//input[@type='password']")).sendKeys(ConfigurationReader.getProperty("password"));
+        Driver.getDriver().findElement(By.xpath("//input[@type='password']")).sendKeys(ConfigurationReader.getProperty("driver_password"));
         BrowserUtils.sleep(1);
         // User clicks SIGN IN button
         Driver.getDriver().findElement(By.xpath("//button[@type='submit']")).click();
