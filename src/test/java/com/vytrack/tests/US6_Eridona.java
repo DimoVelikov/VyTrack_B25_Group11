@@ -78,7 +78,7 @@ public class US6_Eridona {
         System.out.println("==================== STORE MANAGER   =========================");
     }
 
-//storemanager65 --- storemanager69
+    //storemanager65 --- storemanager69
     @Test
     public void edit_car_info_from_Vehicle_page_StoreManager() {
 
@@ -126,20 +126,18 @@ public class US6_Eridona {
         logout.click();
 
 
-
         System.out.println("==================== TRUCK DRIVER   =========================");
     }
 
-        //user172 --- user177
+    //user172 --- user177
 
     @Test
     public void edit_car_info_from_Vehicle_page_TruckDriver() {
 
-        // STEP 1: User go to homepage
         Driver.getDriver().get("https://qa1.vytrack.com/user/login");
 
         // User enters username
-        Driver.getDriver().findElement(By.xpath("//input[@type='text']")).sendKeys("user172");
+        Driver.getDriver().findElement(By.xpath("//input[@type='text']")).sendKeys("user177");
         BrowserUtils.sleep(2);
 
         // User enters password
@@ -170,6 +168,19 @@ public class US6_Eridona {
         threeDots.isSelected();
 
         Assert.assertTrue(threeDots.isDisplayed());
+
+        // user logout
+        WebElement logoutButton = Driver.getDriver().findElement(By.xpath("//i[@class='fa-caret-down']"));
+        logoutButton.click();
+
+        WebElement logout = Driver.getDriver().findElement(By.xpath("//a[.='Logout']"));
+        logout.click();
+
+
+        ////td[@class='action-cell grid-cell grid-body-cell'][1]
+        ////div[@class='more-bar-holder'][1]
+
+
 
     }
 }
