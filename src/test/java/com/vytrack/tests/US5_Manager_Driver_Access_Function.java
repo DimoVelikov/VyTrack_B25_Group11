@@ -1,6 +1,7 @@
 package com.vytrack.tests;
 
 import com.vytrack.utilities.BrowserUtils;
+import com.vytrack.utilities.ConfigurationReader;
 import com.vytrack.utilities.Driver;
 import com.vytrack.utilities.VyTrack_Utilities;
 import org.openqa.selenium.By;
@@ -42,17 +43,17 @@ public class US5_Manager_Driver_Access_Function {
 */
 
         // STEP 1: User go to homepage
-        Driver.getDriver().get("https://qa1.vytrack.com/user/login");
+        Driver.getDriver().get(ConfigurationReader.getProperty("env1"));
 
         // User enters username
-        Driver.getDriver().findElement(By.xpath("//input[@type='text']")).sendKeys("salesmanager141");
-        BrowserUtils.sleep(2);
+        Driver.getDriver().findElement(By.xpath("//input[@type='text']")).sendKeys(ConfigurationReader.getProperty("sales_manager_username"));
+        BrowserUtils.sleep(1);
         // User enters password
-        Driver.getDriver().findElement(By.xpath("//input[@type='password']")).sendKeys("UserUser123");
-        BrowserUtils.sleep(2);
+        Driver.getDriver().findElement(By.xpath("//input[@type='password']")).sendKeys(ConfigurationReader.getProperty("sales_manager_password"));
+        BrowserUtils.sleep(1);
         // User clicks SIGN IN button
         Driver.getDriver().findElement(By.xpath("//button[@type='submit']")).click();
-        BrowserUtils.sleep(2);
+        BrowserUtils.sleep(1);
 
 
         // STEP 2: System should display 'Fleet' tab / module
@@ -125,10 +126,11 @@ public class US5_Manager_Driver_Access_Function {
 
         WebElement vendorsColumn = Driver.getDriver().findElement(By.xpath("//span[.='Vendors']"));
         modelNameColumn.isDisplayed();
+        BrowserUtils.sleep(2);
 
+        // user logout from homepage
         WebElement logoutButton = Driver.getDriver().findElement(By.xpath("//i[@class='fa-caret-down']"));
         logoutButton.click();
-        BrowserUtils.sleep(2);
 
         WebElement logout = Driver.getDriver().findElement(By.xpath("//a[.='Logout']"));
         logout.click();
@@ -150,17 +152,17 @@ public class US5_Manager_Driver_Access_Function {
 */
 
         // STEP 1: User go to homepage
-        Driver.getDriver().get("https://qa1.vytrack.com/user/login");
+        Driver.getDriver().get(ConfigurationReader.getProperty("env1"));
 
         // User enters username
-        Driver.getDriver().findElement(By.xpath("//input[@type='text']")).sendKeys("storemanager65");
-        BrowserUtils.sleep(2);
+        Driver.getDriver().findElement(By.xpath("//input[@type='text']")).sendKeys(ConfigurationReader.getProperty("store_manager_username"));
+        BrowserUtils.sleep(1);
         // User enters password
-        Driver.getDriver().findElement(By.xpath("//input[@type='password']")).sendKeys("UserUser123");
-        BrowserUtils.sleep(2);
+        Driver.getDriver().findElement(By.xpath("//input[@type='password']")).sendKeys(ConfigurationReader.getProperty("store_manager_password"));
+        BrowserUtils.sleep(1);
         // User clicks SIGN IN button
         Driver.getDriver().findElement(By.xpath("//button[@type='submit']")).click();
-        BrowserUtils.sleep(2);
+        BrowserUtils.sleep(1);
 
 
         // STEP 2: System should display 'Fleet' tab / module
@@ -233,10 +235,11 @@ public class US5_Manager_Driver_Access_Function {
 
         WebElement vendorsColumn = Driver.getDriver().findElement(By.xpath("//span[.='Vendors']"));
         modelNameColumn.isDisplayed();
+        BrowserUtils.sleep(2);
 
+        // user logout from homepage
         WebElement logoutButton = Driver.getDriver().findElement(By.xpath("//i[@class='fa-caret-down']"));
         logoutButton.click();
-        BrowserUtils.sleep(2);
 
         WebElement logout = Driver.getDriver().findElement(By.xpath("//a[.='Logout']"));
         logout.click();
@@ -253,17 +256,17 @@ public class US5_Manager_Driver_Access_Function {
 
 
         // STEP 1: User go to homepage
-        Driver.getDriver().get("https://qa1.vytrack.com/user/login");
+        Driver.getDriver().get(ConfigurationReader.getProperty("env1"));
 
         // User enters username
-        Driver.getDriver().findElement(By.xpath("//input[@type='text']")).sendKeys("user177");
-        BrowserUtils.sleep(2);
+        Driver.getDriver().findElement(By.xpath("//input[@type='text']")).sendKeys(ConfigurationReader.getProperty("driver_username"));
+        BrowserUtils.sleep(1);
         // User enters password
-        Driver.getDriver().findElement(By.xpath("//input[@type='password']")).sendKeys("UserUser123");
-        BrowserUtils.sleep(2);
+        Driver.getDriver().findElement(By.xpath("//input[@type='password']")).sendKeys(ConfigurationReader.getProperty("driver_password"));
+        BrowserUtils.sleep(1);
         // User clicks SIGN IN button
         Driver.getDriver().findElement(By.xpath("//button[@type='submit']")).click();
-        BrowserUtils.sleep(2);
+        BrowserUtils.sleep(1);
 
 
         // STEP 2: System should display 'Fleet' tab / module
