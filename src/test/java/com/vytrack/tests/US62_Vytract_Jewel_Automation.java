@@ -13,7 +13,8 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class US62_Vytract_Jewel_Automation {
-
+// US: As a user, I want to write the “Description” when I create a calendar event. (Iframe)
+//AC: users should be able to write messages in the Description field on the calendar event page.
     @BeforeMethod
     public void setUp() throws InterruptedException {
            VytrackUtils.loginAsDriver(); // pass
