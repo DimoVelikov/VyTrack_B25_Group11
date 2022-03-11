@@ -16,43 +16,10 @@ public class US62_Vytract_Jewel_Automation {
 
     @BeforeMethod
     public void setUp() throws InterruptedException {
-        //driver = WebDriverFactory.getDriver("chrome");
-        //driver.manage().window().maximize();
-        //driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-        //driver.get("https://qa1.vytrack.com/user/login");
-        //simply use Driver.getDriver().get in one line
-        Driver.getDriver().get("https://qa1.vytrack.com/user/login");
-/*1st way
-        //log in
-        WebElement InputUserName = Driver.getDriver().findElement(By.xpath("//input[@id='prependedInput']"));
-        // InputUserName.sendKeys("user1"); //
-        InputUserName.sendKeys("salesmanager120"); //
-        // InputUserName.sendKeys("storemanager85"); //
-
-        WebElement InputPassword = Driver.getDriver().findElement(By.xpath("//input[@id='prependedInput2']"));
-        InputPassword.sendKeys("UserUser123");
-
-        WebElement loginButton = Driver.getDriver().findElement(By.xpath("//button[text()='Log in']"));
-        loginButton.click();
-        //----------------------------------------
-        Driver.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        Thread.sleep(2000);
- */
-/*2nd way
-        Driver.getDriver().get(ConfigurationReader.getProperty("env1"));
-        // pass username
-        // Driver.getDriver().findElement(By.cssSelector("#prependedInput"));
-        Driver.getDriver().findElement(By.id("prependedInput")).sendKeys(ConfigurationReader.getProperty("driver_username"));
-        //pass password
-        Driver.getDriver().findElement(By.xpath("//input[@id='prependedInput2']")).sendKeys(ConfigurationReader.getProperty("driver_password"));
-        //click login button
-        Driver.getDriver().findElement(By.xpath("//button[text()='Log in']")).click();
- */
-        //3rd way: most concise way to login
-        VytrackUtils.loginAsDriver(); // pass
+           VytrackUtils.loginAsDriver(); // pass
         // VytrackUtils.loginAsSalesManager(); //pass
-        // VytrackUtils.loginAsStoreManger();
-        BrowserUtils.sleep(3);
+        // VytrackUtils.loginAsStoreManger(); // pass
+        BrowserUtils.sleep(2);
     }
 
     @Test
@@ -60,33 +27,33 @@ public class US62_Vytract_Jewel_Automation {
 
         Actions actions = new Actions(Driver.getDriver());
         WebElement activities = Driver.getDriver().findElement(By.xpath("//span[normalize-space()='Activities' and @class='title title-level-1']"));
-        BrowserUtils.sleep(2);
+        BrowserUtils.sleep(1);
         actions.moveToElement(activities).perform();
 
         BrowserUtils.sleep(2);
         WebElement activities_calendarEvent = Driver.getDriver().findElement(By.xpath("//span[.='Calendar Events' and @class='title title-level-2']"));
+        BrowserUtils.sleep(1);
         activities_calendarEvent.click();
 
-        BrowserUtils.sleep(2);
-        WebElement create_calendarEventBtn = Driver.getDriver().findElement(By.xpath("//a[@title='Create Calendar event']"));//not cliclable
-        BrowserUtils.sleep(4);
-        create_calendarEventBtn.click();
-    }
-
-
-    @Test
-    public void verify_input_showed() throws InterruptedException {
-        //option3--locate as webElement of iframe
         BrowserUtils.sleep(3);
+        WebElement create_calendarEventBtn = Driver.getDriver().findElement(By.xpath("//a[@title='Create Calendar event']"));//not cliclable
+        BrowserUtils.sleep(2);
+        create_calendarEventBtn.click();
+        BrowserUtils.sleep(2);
+
+
+        //option3--locate as webElement of iframe
         Driver.getDriver().switchTo().frame(Driver.getDriver().findElement(By.xpath("//iframe[@title='Rich Text Area. Press ALT-F9 for menu. Press ALT-F10 for toolbar. Press ALT-0 for help']")));
         BrowserUtils.sleep(3);
         //locate p tag
         WebElement userInput = Driver.getDriver().findElement(By.xpath("//p"));
         userInput.sendKeys("user input message");
         BrowserUtils.sleep(2);
-        //Assert.assertTrue(userInput.isDisplayed());
-        System.out.println("userInput.isDisplayed() = " + userInput.isDisplayed());
+
+        Assert.assertTrue(userInput.isDisplayed());
+        //   System.out.println("userInput.isDisplayed() = " + userInput.isDisplayed());
 
         Driver.closeDriver();
+
     }
 }
