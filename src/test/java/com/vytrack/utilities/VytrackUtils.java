@@ -15,6 +15,7 @@ public class VytrackUtils {
         //click login button
         Driver.getDriver().findElement(By.tagName("button")).click();
 
+
     }
 
     public static void loginAsDriver() {
@@ -24,8 +25,10 @@ public class VytrackUtils {
         // Driver.getDriver().findElement(By.cssSelector("#prependedInput"));
         Driver.getDriver().findElement(By.id("prependedInput")).sendKeys(ConfigurationReader.getProperty("driver_username"));
         //pass password
+        BrowserUtils.sleep(2);
         Driver.getDriver().findElement(By.cssSelector("#prependedInput2")).sendKeys(ConfigurationReader.getProperty("driver_password"));
         //click login button
+        BrowserUtils.sleep(1);
         Driver.getDriver().findElement(By.tagName("button")).click();
     }
 
@@ -52,6 +55,5 @@ public class VytrackUtils {
         //click login button
         Driver.getDriver().findElement(By.tagName("button")).click();
     }
-
 
 }
