@@ -60,18 +60,33 @@ public class US62_Vytract_Jewel_Automation {
 
         Actions actions = new Actions(Driver.getDriver());
         WebElement activities = Driver.getDriver().findElement(By.xpath("//span[normalize-space()='Activities' and @class='title title-level-1']"));
+        BrowserUtils.sleep(2);
         actions.moveToElement(activities).perform();
 
-        BrowserUtils.sleep(3);
+        BrowserUtils.sleep(2);
         WebElement activities_calendarEvent = Driver.getDriver().findElement(By.xpath("//span[.='Calendar Events' and @class='title title-level-2']"));
         activities_calendarEvent.click();
 
-        BrowserUtils.sleep(3);
+        BrowserUtils.sleep(2);
         WebElement create_calendarEventBtn = Driver.getDriver().findElement(By.xpath("//a[@title='Create Calendar event']"));//not cliclable
+        BrowserUtils.sleep(4);
         create_calendarEventBtn.click();
-
-
     }
 
 
+    @Test
+    public void verify_input_showed() throws InterruptedException {
+        //option3--locate as webElement of iframe
+        BrowserUtils.sleep(3);
+        Driver.getDriver().switchTo().frame(Driver.getDriver().findElement(By.xpath("//iframe[@title='Rich Text Area. Press ALT-F9 for menu. Press ALT-F10 for toolbar. Press ALT-0 for help']")));
+        BrowserUtils.sleep(3);
+        //locate p tag
+        WebElement userInput = Driver.getDriver().findElement(By.xpath("//p"));
+        userInput.sendKeys("user input message");
+        BrowserUtils.sleep(2);
+        //Assert.assertTrue(userInput.isDisplayed());
+        System.out.println("userInput.isDisplayed() = " + userInput.isDisplayed());
+
+        Driver.closeDriver();
+    }
 }
