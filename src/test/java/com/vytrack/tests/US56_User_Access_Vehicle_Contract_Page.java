@@ -33,6 +33,7 @@ AC2:
     @Test
     public void store_manager_access_vehicle_contract_page_test() {
         Driver.getDriver().get(ConfigurationReader.getProperty("env1"));
+       // login as store manager
         VytrackUtils.loginAsStoreManger();
 
         try {
@@ -76,6 +77,7 @@ AC2:
     @Test
     public void sales_manager_access_vehicle_contract_page_test() {
         Driver.getDriver().get(ConfigurationReader.getProperty("env1"));
+        // login as sales manager
         VytrackUtils.loginAsSalesManager();
 
         try {
