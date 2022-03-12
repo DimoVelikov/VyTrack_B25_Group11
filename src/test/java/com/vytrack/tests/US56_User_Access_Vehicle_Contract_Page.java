@@ -22,7 +22,7 @@ public class US56_User_Access_Vehicle_Contract_Page {
     As a user, I want to access to Vehicle contracts page
 AC1:
 Store managers and Sales managers access the Vehicle contracts page.
-Expected URL: https://qa2.vytrack.com/entity/Extend_Entity_VehicleContract
+Expected URL: https://qa1.vytrack.com/entity/Extend_Entity_VehicleContract
 Expected title: All - Vehicle Contract - Entities - System - Car - Entities - System.
 
 AC2:
@@ -111,6 +111,43 @@ AC2:
         String actualVehicleContractsPageTitle = Driver.getDriver().getTitle();
         String expectedVehicleContractsPageTitle = "All - Vehicle Contract - Entities - System - Car - Entities - System.";
         Assert.assertEquals(actualVehicleContractsPageTitle, expectedVehicleContractsPageTitle);
+
+        Driver.closeDriver();
+
+    }
+    @Test
+    public void driver_should_not_be_able_to_access_vehicle_contract_page_test() {
+        Driver.getDriver().get(ConfigurationReader.getProperty("env1"));
+
+       // user login as driver
+        VytrackUtils.loginAsDriver();
+
+        try {
+            WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 20);
+            WebElement loadingBar = Driver.getDriver().findElement(By.xpath("//div[@class='bar']"));
+            WebElement loaderMask = Driver.getDriver().findElement(By.cssSelector("div[class='loader-mask shown']"));
+            wait.until(ExpectedConditions.invisibilityOf(loadingBar));
+            wait.until(ExpectedConditions.invisibilityOf(loaderMask));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // user go to Fleet tab and hover over
+
+        WebElement tabElement = Driver.getDriver().findElement(By.xpath("(//span[normalize-space()='Fleet'])[1]"));
+        BrowserUtils.sleep(2);
+        Actions actions = new Actions(Driver.getDriver());
+        actions.moveToElement(tabElement).perform();
+
+        // user click the "Vehicle Contracts" button
+        BrowserUtils.sleep(3);
+        Driver.getDriver().findElement(By.xpath("//span[.='Vehicle Contracts']")).click();
+        BrowserUtils.sleep(3);
+
+        //verify the error message is displayed
+        WebElement errorMessage = Driver.getDriver().findElement(By.xpath("//div[.='You do not have permission to perform this action.']"));
+        Assert.assertTrue(errorMessage.isDisplayed());
+
 
         Driver.closeDriver();
 
