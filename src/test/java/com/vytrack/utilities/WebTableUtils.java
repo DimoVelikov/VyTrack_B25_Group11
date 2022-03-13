@@ -20,4 +20,4 @@ public class WebTableUtils {
         headerElements.forEach(k -> headerTitles.add(k.getText()));
         return headerTitles;
     }
-}
+
