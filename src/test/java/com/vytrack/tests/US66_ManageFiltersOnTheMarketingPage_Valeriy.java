@@ -1,11 +1,14 @@
 package com.vytrack.tests;
 
+import com.vytrack.pages.ManageFilters;
+import com.vytrack.utilities.BrowserUtils;
 import com.vytrack.utilities.Driver;
 import com.vytrack.utilities.VytrackUtils;
 import com.vytrack.utilities.WebTableUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -19,7 +22,6 @@ public class US66_ManageFiltersOnTheMarketingPage_Valeriy {
     // AC #1: Store and sales managers should see all the five filter options are checked by default.
     //
     //AC #2: any amount of boxes should be unchecked. (can check only 1, or multiple)
-
     @Test
     public void AC1_FiveFilterOptionsAreCheckedByDefault_as_sales_manager() {
         //login as sales manager
@@ -36,28 +38,69 @@ public class US66_ManageFiltersOnTheMarketingPage_Valeriy {
         VytrackUtils.waitTillLoaderMaskDisappear();
         campaignsModelElement.click();
         VytrackUtils.waitTillLoaderMaskDisappear();
-        List<String> actualheadersFromCampaignsModelTable = WebTableUtils.getHeadersFromVehicleModelTable();
-        List<String> expectedheadersFromCampaignsModelTable = new ArrayList<>(Arrays.asList(
-                "NAME",
-                "CODE",
-                "START DATE",
-                "END DATE",
-                "BUDGET"
-        ));
+        //Filters
+        Driver.getDriver().findElement(By.xpath("//a[@title='Filters']")).click();
+        BrowserUtils.sleep(2);
+        //Manage filters
+        Driver.getDriver().findElement(By.xpath("//a[@class='add-filter-button']")).click();
+        BrowserUtils.sleep(2);
 
-        //verify header columns
-        Assert.assertEquals(actualheadersFromCampaignsModelTable, expectedheadersFromCampaignsModelTable);
+        ManageFilters select = new ManageFilters();
+
+        select.checkedName.isSelected();
+        select.checkedCade.isSelected();
+        select.checkedStartDate.isSelected();
+        select.checkedEndDate.isSelected();
+        select.checkedBudget.isSelected();
+        Assert.assertTrue(true);
+
 
         Driver.closeDriver();
 
 
     }
 
-//    @Test
-//    public void AC2_AnyAmountOfBoxesShouldBeUnchecked_CanCheckOnly1_OrMultiple_as_sales_manager(){
-//
-//
-//    }
+    @Test
+    public void AC2_AnyAmountOfBoxesShouldBeUnchecked_CanCheckOnly1_OrMultiple_as_sales_manager() {
+        //login as sales manager
+        VytrackUtils.loginAsSalesManager();
+        //go to Marketing tab
+        String marketingTabElementLocator = "//span[normalize-space()='Marketing' and contains(@class, 'title title-level-1')]";
+
+        WebElement marketingTabElement = Driver.getDriver().findElement(By.xpath(marketingTabElementLocator));
+        Actions actions = new Actions(Driver.getDriver());
+        actions.moveToElement(marketingTabElement).perform();
+        String campaignsModelModuleLocator = "//span[normalize-space()='Campaigns' and contains(@class, 'title title-level-2')]";
+        WebElement campaignsModelElement = Driver.getDriver().findElement(By.xpath(campaignsModelModuleLocator));
+        //we are using for waiting until loader mask disappearing
+        VytrackUtils.waitTillLoaderMaskDisappear();
+        campaignsModelElement.click();
+        VytrackUtils.waitTillLoaderMaskDisappear();
+        //Filters
+        Driver.getDriver().findElement(By.xpath("//a[@title='Filters']")).click();
+        BrowserUtils.sleep(2);
+        //Manage filters
+        Driver.getDriver().findElement(By.xpath("//a[@class='add-filter-button']")).click();
+        BrowserUtils.sleep(2);
+
+        ManageFilters select = new ManageFilters();
+
+        select.checkedName.isSelected();
+        select.checkedStartDate.isSelected();
+        select.checkedEndDate.isSelected();
+        Assert.assertTrue(true);
+
+        select.checkedBudget.click();
+        BrowserUtils.sleep(2);
+        select.checkedCade.click();
+        BrowserUtils.sleep(2);
+        select.checkedEndDate.click();
+        BrowserUtils.sleep(2);
+
+
+         Driver.closeDriver();
+
+    }
 
     @Test
     public void AC1_FiveFilterOptionsAreCheckedByDefault_as_store_manager() {
@@ -75,27 +118,68 @@ public class US66_ManageFiltersOnTheMarketingPage_Valeriy {
         VytrackUtils.waitTillLoaderMaskDisappear();
         campaignsModelElement.click();
         VytrackUtils.waitTillLoaderMaskDisappear();
-        List<String> actualheadersFromCampaignsModelTable = WebTableUtils.getHeadersFromVehicleModelTable();
-        List<String> expectedheadersFromCampaignsModelTable = new ArrayList<>(Arrays.asList(
-                "NAME",
-                "CODE",
-                "START DATE",
-                "END DATE",
-                "BUDGET"
-        ));
+        //Filters
+        Driver.getDriver().findElement(By.xpath("//a[@title='Filters']")).click();
+        BrowserUtils.sleep(2);
+        //Manage filters
+        Driver.getDriver().findElement(By.xpath("//a[@class='add-filter-button']")).click();
+        BrowserUtils.sleep(2);
 
-        //verify header columns
-        Assert.assertEquals(actualheadersFromCampaignsModelTable, expectedheadersFromCampaignsModelTable);
+        ManageFilters select = new ManageFilters();
+
+        select.checkedName.isSelected();
+        select.checkedCade.isSelected();
+        select.checkedStartDate.isSelected();
+        select.checkedEndDate.isSelected();
+        select.checkedBudget.isSelected();
+        Assert.assertTrue(true);
 
 
         Driver.closeDriver();
+
     }
 
-//    @Test
-//    public void AC2_AnyAmountOfBoxesShouldBeUnchecked_CanCheckOnly1_OrMultiple_as_store_manager(){
-//
-//
-//    }
+    @Test
+    public void AC2_AnyAmountOfBoxesShouldBeUnchecked_CanCheckOnly1_OrMultiple_as_store_manager() {
+        //login as sales manager
+        VytrackUtils.loginAsStoreManger();
+        //go to Marketing tab
+        String marketingTabElementLocator = "//span[normalize-space()='Marketing' and contains(@class, 'title title-level-1')]";
+
+        WebElement marketingTabElement = Driver.getDriver().findElement(By.xpath(marketingTabElementLocator));
+        Actions actions1 = new Actions(Driver.getDriver());
+        actions1.moveToElement(marketingTabElement).perform();
+        String campaignsModelModuleLocator = "//span[normalize-space()='Campaigns' and contains(@class, 'title title-level-2')]";
+        WebElement campaignsModelElement = Driver.getDriver().findElement(By.xpath(campaignsModelModuleLocator));
+        //we are using for waiting until loader mask disappearing
+        VytrackUtils.waitTillLoaderMaskDisappear();
+        campaignsModelElement.click();
+        VytrackUtils.waitTillLoaderMaskDisappear();
+        //Filters
+        Driver.getDriver().findElement(By.xpath("//a[@title='Filters']")).click();
+        BrowserUtils.sleep(2);
+        //Manage filters
+        Driver.getDriver().findElement(By.xpath("//a[@class='add-filter-button']")).click();
+        BrowserUtils.sleep(2);
+
+        ManageFilters select = new ManageFilters();
+
+        select.checkedName.isSelected();
+        select.checkedStartDate.isSelected();
+        select.checkedEndDate.isSelected();
+        Assert.assertTrue(true);
+
+        select.checkedBudget.click();
+        BrowserUtils.sleep(2);
+        select.checkedCade.click();
+        BrowserUtils.sleep(2);
+        select.checkedEndDate.click();
+        BrowserUtils.sleep(2);
+
+
+        Driver.closeDriver();
+
+    }
 
 
 }

@@ -4,11 +4,13 @@ package com.vytrack.utilities;
 In this class only general utility methods that are not related to some specific page.
  */
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
@@ -105,5 +107,7 @@ public class BrowserUtils {
         new Actions(Driver.getDriver()).doubleClick(element).perform();
 
     }
+
+
 
 }
