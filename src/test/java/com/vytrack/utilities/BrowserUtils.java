@@ -1,5 +1,6 @@
 package com.vytrack.utilities;
 
+
 /*
 In this class only general utility methods that are not related to some specific page.
  */
@@ -67,6 +68,8 @@ public class BrowserUtils {
         Assert.assertEquals(Driver.getDriver().getTitle(), expectedTitle);
     }
 
+
+
     //Create hover(WebElement element) method
     public static void hover(WebElement element) {
         Actions actions = new Actions(Driver.getDriver());
@@ -111,3 +114,4 @@ public class BrowserUtils {
 
 
 }
+

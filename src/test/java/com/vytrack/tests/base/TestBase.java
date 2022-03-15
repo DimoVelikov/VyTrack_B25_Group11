@@ -23,4 +23,3 @@ public abstract class TestBase {
         Driver.closeDriver();
     }
 
-}
