@@ -78,7 +78,7 @@ UserUser123
         createCalendarEventButton.click();
 
         //---5---
-        WebElement repeatCheckBox = Driver.getDriver().findElement(By.xpath("//input[@id='recurrence-repeat-view242']"));
+        WebElement repeatCheckBox = Driver.getDriver().findElement(By.xpath("//*[@id=\"recurrence-repeat-view274\"]"));
         repeatCheckBox.click();
 
         //---6---
@@ -91,19 +91,20 @@ UserUser123
 
         //---7---
         WebElement errormessage1 =
-                Driver.getDriver().findElement(By.xpath("//span[@id='temp-validation-name-266-error']"));
+                Driver.getDriver().findElement(By.xpath("(//span[.='The value have not to be less than 1.'])[2]"));
 
         Assert.assertEquals(errormessage1.getText(), "The value have not to be less than 1.");
 
         //---8---
         BrowserUtils.sleep(1);
         repeatDaysInputBox.clear();
+        BrowserUtils.sleep(1);
         repeatDaysInputBox.sendKeys(faker.numerify("###"));
 
         //---9---
         BrowserUtils.sleep(1);
         WebElement errormessage2 =
-                Driver.getDriver().findElement(By.xpath("//span[@id='temp-validation-name-266-error']"));
+                Driver.getDriver().findElement(By.xpath("(//span[.='The value have not to be more than 99.'])[2]"));
 
         Assert.assertEquals(errormessage2.getText(), "The value have not to be more than 99.");
 
