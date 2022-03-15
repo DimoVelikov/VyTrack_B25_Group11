@@ -3,7 +3,6 @@ package com.vytrack.tests;
 import com.vytrack.utilities.BrowserUtils;
 import com.vytrack.utilities.ConfigurationReader;
 import com.vytrack.utilities.Driver;
-import com.vytrack.utilities.VyTrack_Utilities;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -313,7 +312,7 @@ public class US5_Manager_Driver_Access_Function {
         String expectedErrorMessage = "You do not have permission to perform this action.";
         String actualErrorMessage = errorMessage.getText();
 
-        Assert.assertEquals(actualErrorMessage, expectedErrorMessage, "Invalid error message detected");
+        Assert.assertEquals(actualErrorMessage, expectedErrorMessage);
 
     }
 
