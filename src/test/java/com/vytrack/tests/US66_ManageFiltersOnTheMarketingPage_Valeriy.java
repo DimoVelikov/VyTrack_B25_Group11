@@ -30,8 +30,8 @@ public class US66_ManageFiltersOnTheMarketingPage_Valeriy {
         String marketingTabElementLocator = "//span[normalize-space()='Marketing' and contains(@class, 'title title-level-1')]";
 
         WebElement marketingTabElement = Driver.getDriver().findElement(By.xpath(marketingTabElementLocator));
-        Actions actions = new Actions(Driver.getDriver());
-        actions.moveToElement(marketingTabElement).perform();
+        Actions actions1 = new Actions(Driver.getDriver());
+        actions1.moveToElement(marketingTabElement).perform();
         String campaignsModelModuleLocator = "//span[normalize-space()='Campaigns' and contains(@class, 'title title-level-2')]";
         WebElement campaignsModelElement = Driver.getDriver().findElement(By.xpath(campaignsModelModuleLocator));
         //we are using for waiting until loader mask disappearing
@@ -68,8 +68,8 @@ public class US66_ManageFiltersOnTheMarketingPage_Valeriy {
         String marketingTabElementLocator = "//span[normalize-space()='Marketing' and contains(@class, 'title title-level-1')]";
 
         WebElement marketingTabElement = Driver.getDriver().findElement(By.xpath(marketingTabElementLocator));
-        Actions actions = new Actions(Driver.getDriver());
-        actions.moveToElement(marketingTabElement).perform();
+        Actions actions2 = new Actions(Driver.getDriver());
+        actions2.moveToElement(marketingTabElement).perform();
         String campaignsModelModuleLocator = "//span[normalize-space()='Campaigns' and contains(@class, 'title title-level-2')]";
         WebElement campaignsModelElement = Driver.getDriver().findElement(By.xpath(campaignsModelModuleLocator));
         //we are using for waiting until loader mask disappearing
@@ -110,8 +110,8 @@ public class US66_ManageFiltersOnTheMarketingPage_Valeriy {
         String marketingTabElementLocator = "//span[normalize-space()='Marketing' and contains(@class, 'title title-level-1')]";
 
         WebElement marketingTabElement = Driver.getDriver().findElement(By.xpath(marketingTabElementLocator));
-        Actions actions = new Actions(Driver.getDriver());
-        actions.moveToElement(marketingTabElement).perform();
+        Actions actions3 = new Actions(Driver.getDriver());
+        actions3.moveToElement(marketingTabElement).perform();
         String campaignsModelModuleLocator = "//span[normalize-space()='Campaigns' and contains(@class, 'title title-level-2')]";
         WebElement campaignsModelElement = Driver.getDriver().findElement(By.xpath(campaignsModelModuleLocator));
         //we are using for waiting until loader mask disappearing
@@ -147,8 +147,8 @@ public class US66_ManageFiltersOnTheMarketingPage_Valeriy {
         String marketingTabElementLocator = "//span[normalize-space()='Marketing' and contains(@class, 'title title-level-1')]";
 
         WebElement marketingTabElement = Driver.getDriver().findElement(By.xpath(marketingTabElementLocator));
-        Actions actions1 = new Actions(Driver.getDriver());
-        actions1.moveToElement(marketingTabElement).perform();
+        Actions actions4 = new Actions(Driver.getDriver());
+        actions4.moveToElement(marketingTabElement).perform();
         String campaignsModelModuleLocator = "//span[normalize-space()='Campaigns' and contains(@class, 'title title-level-2')]";
         WebElement campaignsModelElement = Driver.getDriver().findElement(By.xpath(campaignsModelModuleLocator));
         //we are using for waiting until loader mask disappearing
