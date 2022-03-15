@@ -3,19 +3,26 @@ package com.vytrack.utilities;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import org.openqa.selenium.firefox.FirefoxDriver;
+
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
+
 import java.util.concurrent.TimeUnit;
 
 public class Driver {
 
- /*
-    Creating a private constructor, so we are closing
-    access to the object of this class from outside the class
-     */
+
+
+    /*
+       Creating a private constructor, so we are closing
+       access to the object of this class from outside the class
+        */
+
     private Driver() {
     }
 
@@ -70,4 +77,3 @@ public class Driver {
             driver = null;
         }
     }
-}
